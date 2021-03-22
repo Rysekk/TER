@@ -76,7 +76,7 @@ def countTFClause(tabRep):
 
 
 tabVal = [True, False, True , True,False]
-exp = genExp(500,100,3) #nbClause, nbVar, maxVarClause
+exp = genExp(10,6,3) #nbClause, nbVar, maxVarClause
 print(exp)
 
 valuate(exp, tabVal)
