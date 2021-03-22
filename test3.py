@@ -16,7 +16,7 @@ formula = CNF(from_file='quinn.cnf')
     print(s.get_core())
 """
 
-print(formula.clauses)
+
 
 
 
@@ -113,6 +113,17 @@ def countTruePop(pop):
         l.append(tc)
     return l
 
+def valuateTab(tabValuate):
+    tab = []
+    for i in tabValuate:
+        tab.append(valuate(i, formula.clauses))
+    return tab
+
+def calcExpTab(tabVal):
+    tab = []
+    for i in tabVal:
+        tab.append(calcExp(i))
+    return tab
 
 
 
@@ -125,9 +136,13 @@ tabfiak = calcExp(tabRep)
 
 tabtest = genSolAlea(16)
 print(tabtest)
-sols = genTabSolAlea(10000, 16)
+sols = genTabSolAlea(1, 16)
 print(sols)
-elite = selectElite(sols, 10)
+print(formula.clauses)
+elite = selectElite(sols, 1)
 print("///////////////////////////////////////////")
 print(elite)
-print(countTruePop(valuate(elite, formula.clauses)))
+tabVal = valuateTab(elite)
+print(tabVal)
+tabcalc = calcExpTab(tabVal)
+print(countTruePop(tabcalc))
